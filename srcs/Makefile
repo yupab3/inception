@@ -4,6 +4,8 @@ VOLUME_DB=	/home/dy/data/mariadb
 .PHONY:	all clean fclean re
 
 all:
+	mkdir -p $(VOLUME_WP)
+	mkdir -p $(VOLUME_DB)
 	docker compose up -d
 
 restart: clean all

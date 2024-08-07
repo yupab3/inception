@@ -12,6 +12,4 @@ COPY ./tools/index.html /var/www/html/index.html
 
 EXPOSE 443
 
-ENTRYPOINT ["/sbin/tini", "--", "nginx -g daemon off"]
-
-# ENTRYPOINT ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["/sbin/tini", "--", "nginx", "-g", "daemon off;"]

@@ -1,5 +1,5 @@
-VOLUME_WP=	~/바탕화면/bk/wordpress
-VOLUME_DB=	~/바탕화면/bk/mariadb
+VOLUME_WP=	/home/dy/data/wordpress
+VOLUME_DB=	/home/dy/data/mariadb
 
 .PHONY:	all clean fclean re
 

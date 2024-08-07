@@ -6,7 +6,7 @@ RUN apk --no-cache add tini nginx openssl && \
     -subj "/C=KR/ST=42Seoul/L=2cluster/O=dongyeuk/CN=dongyeuk.42.fr" \
     -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt
 
-COPY ./conf/nginx.conf /etc/nginx/nginx.conf
+COPY ./conf/nginx.conf /etc/nginx/http.d/default.conf
 
 RUN mkdir -p /var/www/html && \
 	chown -R nginx:nginx /var/www/html
@@ -15,6 +15,6 @@ COPY ./tools/index.html /var/www/html/index.html
 
 EXPOSE 443
 
-ENTRYPOINT ["/sbin/tini", "--"]
+#ENTRYPOINT ["/sbin/tini", "--"]
 
-CMD ["nginx", "-g", "daemon off;"]
+ENTRYPOINT ["nginx", "-g", "daemon off;"]

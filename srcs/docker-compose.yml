@@ -3,10 +3,20 @@ version: '3.8'
 services:
   wordpress:
     build: 
-      context: ./wordpress
-    ports:
-      - "8000:80"
-    envfile:
+      context: ./requirements/wordpress
+    environment:
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      WP_URL: ${WP_URL}
+      WP_TITLE: ${WP_TITLE}
+      WP_ADMIN_USER: ${WP_ADMIN_USER}
+      WP_ADMIN_PASSWORD: ${WP_ADMIN_PASSWORD}
+      WP_ADMIN_EMAIL: ${WP_ADMIN_EMAIL}
+      WP_GENERAL_USER: ${WP_GENERAL_USER}
+      WP_GENERAL_PASSWORD: ${WP_GENERAL_PASSWORD}
+      WP_GENERAL_EMAIL: ${WP_GENERAL_EMAIL}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
     volumes:
       - wordpress_data:/var/www/html
     networks:
@@ -14,10 +24,9 @@ services:
 
   db:
     build: 
-      context: ./wordpress
+      context: ./requirements/mariadb
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
       MYSQL_USER: ${MYSQL_USER}
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     volumes:
@@ -27,17 +36,29 @@ services:
 
   nginx:
     build: 
-      context: ./nginx
+      context: ./requirements/nginx
     ports:
-      - "80:80"
+      - "443:443"
     depends_on:
       - wordpress
+    volumes:
+      - wordpress_data:/var/www/html
     networks:
       - wp_network
 
 volumes:
   wordpress_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /Users/dongyeuk/Desktop/inceptionVolumes/wordpress
+      o: bind
   db_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: /Users/dongyeuk/Desktop/inceptionVolumes/mariadb
+      o: bind
 
 networks:
   wp_network:

@@ -11,8 +11,6 @@ RUN mkdir -p /run/mysqld && chown -R mysql:mysql /run/mysqld
 
 EXPOSE 3306
 
-COPY .env /run/mysqld/.env
-
 ENTRYPOINT ["/sbin/tini", "--", "/usr/local/bin/db_init.sh"]
 
 CMD ["mysqld", "--user=mysql", "--console"]

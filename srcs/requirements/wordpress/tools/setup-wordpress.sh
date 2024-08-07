@@ -3,7 +3,7 @@ set -e
 
 cd /var/www/html
 
-wp core download --allow-root
+wp core download --path=/var/www/html --allow-root
 
 wp config create --dbname=${WORDPRESS_DB_NAME} --dbuser=${MYSQL_USER} --dbpass=${MYSQL_PASSWORD} --dbhost=${MYSQL_HOST} --allow-root
 

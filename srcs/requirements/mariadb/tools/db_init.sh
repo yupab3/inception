@@ -16,7 +16,7 @@ mysqld --user=mysql --datadir=/var/lib/mysql --bootstrap << EOSQL
 EOSQL
 echo '초기 설정 완료.'
 
-if [ -z "omg" ]; then
+if [ -z getent passwd "omg" ]; then
     adduser --disabled-password omg
 fi
 

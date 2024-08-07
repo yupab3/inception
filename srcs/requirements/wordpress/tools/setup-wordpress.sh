@@ -16,7 +16,6 @@ else
     wp option update timezone_string "Korea/Gaepo" --allow-root
     wp option update date_format "Y-m-d" --allow-root
     wp option update time_format "H:i" --allow-root
-    wp option update permalink_structure "/%postname%/" --allow-root
 
     # if [ -z "wordpress" ]; then
     adduser --disabled-password wordpress

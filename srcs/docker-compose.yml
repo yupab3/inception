@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  wordpress:
+    build: 
+      context: ./wordpress
+    ports:
+      - "8000:80"
+    envfile:
+    volumes:
+      - wordpress_data:/var/www/html
+    networks:
+      - wp_network
+
+  db:
+    build: 
+      context: ./wordpress
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - wp_network
+
+  nginx:
+    build: 
+      context: ./nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - wordpress
+    networks:
+      - wp_network
+
+volumes:
+  wordpress_data:
+  db_data:
+
+networks:
+  wp_network:

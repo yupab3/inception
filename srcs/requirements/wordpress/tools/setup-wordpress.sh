@@ -18,11 +18,11 @@ else
     wp option update time_format "H:i" --allow-root
     wp option update permalink_structure "/%postname%/" --allow-root
 
-    # if [ -z "omg" ]; then
-    adduser --disabled-password omg
+    # if [ -z "wordpress" ]; then
+    adduser --disabled-password wordpress
     # fi
 
-    chown -R omg:omg /var/www/html
+    chown -R wordpress:wordpress /var/www/html
     chmod -R 777 /var/www/html
 
 fi

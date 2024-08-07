@@ -6,10 +6,6 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
     && chmod +x wp-cli.phar \
     && mv wp-cli.phar /usr/local/bin/wp
 
-# RUN mkdir -p /var/www/html \
-#     && cd /var/www/html \
-#     && wp core download --allow-root
-
 COPY ./tools/setup-wordpress.sh /usr/local/bin/setup-wordpress.sh
 
 RUN chmod +x /usr/local/bin/setup-wordpress.sh

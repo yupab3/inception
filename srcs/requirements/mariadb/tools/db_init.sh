@@ -21,5 +21,6 @@ if [ -z $(getent passwd "omg") ]; then
 fi
 
 chown -R omg:omg /var/lib/mysql
+chmod -R 755 /var/lib/mysql
 
 exec "$@"

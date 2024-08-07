@@ -23,7 +23,7 @@ else
     # fi
 
     chown -R omg:omg /var/www/html
-    chmod -R 755 /var/www/html
+    chmod -R 777 /var/www/html
 
 fi
 

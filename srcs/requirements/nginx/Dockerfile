@@ -8,13 +8,10 @@ RUN apk --no-cache add tini nginx openssl && \
 
 COPY ./conf/nginx.conf /etc/nginx/http.d/default.conf
 
-RUN mkdir -p /var/www/html && \
-	chown -R nginx:nginx /var/www/html
-
 COPY ./tools/index.html /var/www/html/index.html
 
 EXPOSE 443
 
-#ENTRYPOINT ["/sbin/tini", "--"]
+ENTRYPOINT ["/sbin/tini", "--", "nginx -g daemon off"]
 
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+# ENTRYPOINT ["nginx", "-g", "daemon off;"]

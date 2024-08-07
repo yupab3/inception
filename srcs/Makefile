@@ -4,7 +4,7 @@ VOLUME_DB=	~/바탕화면/bk/mariadb
 .PHONY:	all clean fclean re
 
 all:
-	docker compose up
+	docker compose up -d
 
 restart: clean all
 

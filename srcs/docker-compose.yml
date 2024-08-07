@@ -51,13 +51,13 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /Users/dongyeuk/Desktop/inceptionVolumes/wordpress
+      device: ~/Desktop/bk/wordpress
       o: bind
   db_data:
     driver: local
     driver_opts:
       type: none
-      device: /Users/dongyeuk/Desktop/inceptionVolumes/mariadb
+      device: ~/Desktop/bk/mariadb
       o: bind
 
 networks:

@@ -1,4 +1,18 @@
 services:
+  mariadb:
+    build: 
+      context: ./requirements/mariadb
+    image: mariadb
+    container_name: mariadb
+    environment:
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - wp_network
+
   wordpress:
     build: 
       context: ./requirements/wordpress
@@ -21,20 +35,6 @@ services:
       - mariadb
     volumes:
       - wordpress_data:/var/www/html
-    networks:
-      - wp_network
-
-  mariadb:
-    build: 
-      context: ./requirements/mariadb
-    image: mariadb
-    container_name: mariadb
-    environment:
-      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    volumes:
-      - db_data:/var/lib/mysql
     networks:
       - wp_network
 

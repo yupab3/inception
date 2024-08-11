@@ -6,7 +6,7 @@ VOLUME_DB=	/home/dy/data/mariadb
 all:
 	mkdir -p $(VOLUME_WP)
 	mkdir -p $(VOLUME_DB)
-	docker compose up -d
+	docker compose up -d --build
 
 restart: clean all
 

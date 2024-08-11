@@ -20,7 +20,7 @@ services:
     networks:
       - wp_network
 
-  db:
+  mariadb:
     build: 
       context: ./requirements/mariadb
     environment:

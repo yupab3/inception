@@ -8,6 +8,9 @@ all:
 	mkdir -p $(VOLUME_DB)
 	docker compose up -d --build
 
+down:
+	docker compose down
+
 restart: clean all
 
 clean:

@@ -18,9 +18,9 @@ else
 EOSQL
     echo '초기 설정 완료.'
 
-    if [ -z $(getent passwd "omg") ]; then
-    adduser --disabled-password omg
-    chown -R omg:omg /var/lib/mysql
+    if [ -z $(getent passwd "wordpress") ]; then
+    adduser --disabled-password wordpress
+    chown -R wordpress:wordpress /var/lib/mysql
     chmod -R 777 /var/lib/mysql
     fi
 fi

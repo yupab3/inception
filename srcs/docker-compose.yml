@@ -2,7 +2,8 @@ services:
   wordpress:
     build: 
       context: ./requirements/wordpress
-    image: wordpress
+    image: wordpress:latest
+    container_name: wordpress:latest
     environment:
       MYSQL_HOST: ${MYSQL_HOST}
       MYSQL_USER: ${MYSQL_USER}
@@ -24,7 +25,8 @@ services:
   mariadb:
     build: 
       context: ./requirements/mariadb
-    image: mariadb
+    image: mariadb:latest
+    container_name: mariadb:latest
     environment:
       WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
       MYSQL_USER: ${MYSQL_USER}
@@ -37,7 +39,8 @@ services:
   nginx:
     build: 
       context: ./requirements/nginx
-      image: nginx
+    image: nginx:latest
+    container_name: nginx:latest
     ports:
       - "443:443"
     depends_on:

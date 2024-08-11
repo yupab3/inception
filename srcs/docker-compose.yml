@@ -17,6 +17,8 @@ services:
       WP_GENERAL_PASSWORD: ${WP_GENERAL_PASSWORD}
       WP_GENERAL_EMAIL: ${WP_GENERAL_EMAIL}
       WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+    depends_on:
+      - mariadb
     volumes:
       - wordpress_data:/var/www/html
     networks:

@@ -20,7 +20,7 @@ EOSQL
 
 fi
 
-if [ -z $(getent passwd "mariadb") ]; then
+if [ -z $(getent passwd mariadb) ]; then
     adduser --disabled-password mariadb
     chown -R mariadb:mariadb /var/lib/mysql
     chmod -R 755 /var/lib/mysql

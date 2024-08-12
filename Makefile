@@ -12,6 +12,9 @@ all:
 down:
 	docker compose -f $(COMPOSE_DIR) down
 
+logs:
+	docker compose -f $(COMPOSE_DIR) logs
+
 restart: clean all
 
 clean:

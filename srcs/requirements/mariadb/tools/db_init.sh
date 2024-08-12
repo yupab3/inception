@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+mkdir -p /run/mysqld
+touch /run/mysqld/mysqld.sock
+
 #초기화
 if [ -d "/var/lib/mysql/mysql" ]; then
     echo 'MariaDB 가 이미 초기화 되어있습니다.'
@@ -8,9 +11,6 @@ else
     echo 'MariaDB 데이터 디렉토리 초기화...'
     mysql_install_db --user=mysql --datadir=/var/lib/mysql
     echo '초기화 완료.'
-
-    mkdir -p /run/mysqld
-    touch /run/mysqld/mysqld.sock
 
     mariadbd --user=root --bootstrap << EOSQL
         FLUSH PRIVILEGES;

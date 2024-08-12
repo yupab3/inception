@@ -18,11 +18,12 @@ else
 EOSQL
     echo '초기 설정 완료.'
 
-    if [ -z $(getent passwd "wordpress") ]; then
+fi
+
+if [ -z $(getent passwd "wordpress") ]; then
     adduser --disabled-password wordpress
     chown -R wordpress:wordpress /var/lib/mysql
     chmod -R 755 /var/lib/mysql
-    fi
 fi
 
 exec "$@"

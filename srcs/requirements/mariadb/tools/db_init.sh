@@ -20,10 +20,10 @@ EOSQL
 
 fi
 
-if [ -z $(getent passwd "wordpress") ]; then
-    adduser --disabled-password wordpress
-    chown -R wordpress:wordpress /var/lib/mysql
-    chmod -R 766 /var/lib/mysql
+if [ -z $(getent passwd "mariadb") ]; then
+    adduser --disabled-password mariadb
+    chown -R mariadb:mariadb /var/lib/mysql
+    chmod -R 755 /var/lib/mysql
 fi
 
 exec "$@"

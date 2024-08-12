@@ -17,6 +17,6 @@ fi
 adduser --disabled-password wordpress
 
 chown -R wordpress:wordpress /var/www/html
-chmod -R 766 /var/www/html
+chmod -R 755 /var/www/html
 
 exec php-fpm82 -F

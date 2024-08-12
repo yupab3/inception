@@ -7,7 +7,7 @@ RUN chmod +x /usr/local/bin/db_init.sh
 
 COPY ./conf/my.cnf /etc/my.cnf
 
-RUN mkdir -p /run/mysqld && chown -R mysql:mysql /run/mysqld
+RUN mkdir -p /run/mysqld && chown -R root:root /run/mysqld
 
 EXPOSE 3306
 

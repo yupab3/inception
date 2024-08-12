@@ -6,10 +6,10 @@ if [ -d "/var/lib/mysql/mysql" ]; then
     echo 'MariaDB 가 이미 초기화 되어있습니다.'
 else
     echo 'MariaDB 데이터 디렉토리 초기화...'
-    mysql_install_db --user=mysql --datadir=/var/lib/mysql
+    mysql_install_db --user=root --datadir=/var/lib/mysql
     echo '초기화 완료.'
 
-    mysqld --user=root --datadir=/var/lib/mysql --bootstrap << EOSQL
+    mariadbd --user=root --datadir=/var/lib/mysql --bootstrap << EOSQL
         FLUSH PRIVILEGES;
         DELETE FROM mysql.user WHERE user='';
         CREATE USER IF NOT EXISTS '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_PASSWORD}';

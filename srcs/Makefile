@@ -1,5 +1,5 @@
-VOLUME_WP=	/home/dy/data/wordpress
-VOLUME_DB=	/home/dy/data/mariadb
+VOLUME_WP=	/home/dongyeuk/data/wordpress
+VOLUME_DB=	/home/dongyeuk/data/mariadb
 
 .PHONY:	all clean fclean re
 

@@ -58,13 +58,13 @@ volumes:
     driver: local
     driver_opts:
       type: none
-      device: /home/dy/data/wordpress
+      device: /home/dongyeuk/data/wordpress
       o: bind
   db_data:
     driver: local
     driver_opts:
       type: none
-      device: /home/dy/data/mariadb
+      device: /home/dongyeuk/data/mariadb
       o: bind
 
 networks:

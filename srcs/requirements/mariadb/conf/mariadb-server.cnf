@@ -8,7 +8,7 @@
 # this is only for the mysqld standalone daemon
 [mysqld]
 #skip-networking
-port 3306
+port=3306
 
 # Galera-related settings
 [galera]

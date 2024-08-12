@@ -9,6 +9,9 @@ else
     mysql_install_db --user=mysql --datadir=/var/lib/mysql
     echo '초기화 완료.'
 
+    mkdir -p /run/mysqld
+    touch /run/mysqld/mysqld.sock
+
     mariadbd --user=root --bootstrap << EOSQL
         FLUSH PRIVILEGES;
         DELETE FROM mysql.user WHERE user='';

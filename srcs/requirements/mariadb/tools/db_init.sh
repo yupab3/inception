@@ -10,7 +10,7 @@ else
     mysql_install_db --user=mysql --datadir=/var/lib/mysql
     echo '초기화 완료.'
 
-    mariadbd --user=root --datadir=/var/lib/mysql --bootstrap << EOSQL
+    mariadbd --user=root --bootstrap << EOSQL
         FLUSH PRIVILEGES;
         DELETE FROM mysql.user WHERE user='';
         CREATE USER IF NOT EXISTS '${MYSQL_USER}'@'%' IDENTIFIED BY '${MYSQL_PASSWORD}';

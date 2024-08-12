@@ -23,7 +23,7 @@ fi
 if [ -z $(getent passwd "wordpress") ]; then
     adduser --disabled-password wordpress
     chown -R wordpress:wordpress /var/lib/mysql
-    chmod -R 755 /var/lib/mysql
+    chmod -R 766 /var/lib/mysql
 fi
 
 exec "$@"

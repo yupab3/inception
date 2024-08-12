@@ -6,7 +6,6 @@ if [ -d "/var/lib/mysql/mysql" ]; then
     echo 'MariaDB 가 이미 초기화 되어있습니다.'
 else
     echo 'MariaDB 데이터 디렉토리 초기화...'
-    mkdir -p /run/mysqld
     mysql_install_db --user=mysql --datadir=/var/lib/mysql
     echo '초기화 완료.'
 

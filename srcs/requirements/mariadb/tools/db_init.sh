@@ -26,4 +26,4 @@ fi
 
 fi
 
-exec mariadbd --user=root
+exec mariadbd -u root

@@ -18,12 +18,12 @@ else
 EOSQL
     echo '초기 설정 완료.'
 
-fi
-
 if [ -z $(getent passwd mariadb) ]; then
     adduser --disabled-password mariadb
     chown -R mariadb:mariadb /var/lib/mysql
     chmod -R 755 /var/lib/mysql
+fi
+
 fi
 
 exec mariadbd --user=root

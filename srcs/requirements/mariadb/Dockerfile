@@ -12,5 +12,3 @@ RUN mkdir -p /run/mysqld && chown -R mysql:mysql /run/mysqld
 EXPOSE 3306
 
 ENTRYPOINT ["/sbin/tini", "--", "/usr/local/bin/db_init.sh"]
-
-CMD ["mysqld", "--user=mysql", "--console"]

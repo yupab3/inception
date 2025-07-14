@@ -1,5 +1,5 @@
-VOLUME_WP=		/home/dongyeuk/data/wordpress
-VOLUME_DB=		/home/dongyeuk/data/mariadb
+VOLUME_WP=		/Users/dongyeuk/inception/data/wordpress
+VOLUME_DB=		/Users/dongyeuk/inception/data/mariadb
 COMPOSE_DIR=	./srcs/docker-compose.yml
 
 .PHONY:	all clean fclean re
@@ -18,11 +18,10 @@ logs:
 restart: clean all
 
 clean:
-	docker compose -f $(COMPOSE_DIR) down -v
+	docker compose -f $(COMPOSE_DIR) down -v --rmi all
 
 fclean:	clean
-	docker system prune -a
-	rm -rf $(VOLUME_WP)/*
-	rm -rf $(VOLUME_DB)/*
+	rm -rf $(VOLUME_WP)
+	rm -rf $(VOLUME_DB)
 
 re:	fclean all

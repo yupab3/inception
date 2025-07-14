@@ -2,6 +2,8 @@ FROM alpine:3.19
 
 RUN apk --no-cache add tini php php-fpm php-mysqli php-phar curl tar php-mbstring
 
+RUN echo "memory_limit=512M" > /etc/php82/conf.d/memory-limit.ini
+
 RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
     && chmod +x wp-cli.phar \
     && mv wp-cli.phar /usr/local/bin/wp
